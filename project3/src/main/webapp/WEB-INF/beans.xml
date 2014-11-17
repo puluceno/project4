@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<jaxrs:server id="services" address="/">
+		<jaxrs:serviceBeans>
+			<bean id="bookResource" class="edu.luc.comp433.service.resource.BookResource" />
+			<bean id="customerResource" class="edu.luc.comp433.service.resource.CustomerResource" />
+			<bean id="addressResource" class="edu.luc.comp433.service.resource.AddressResource" />
+			<bean id="orderResource" class="edu.luc.comp433.service.resource.OrderResource" />
+			<bean id="paymentResource" class="edu.luc.comp433.service.resource.PaymentResource" />
+			<bean id="apiVersion" class="edu.luc.comp433.service.resource.APIVersion" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+</beans>
